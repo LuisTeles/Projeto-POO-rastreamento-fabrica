@@ -1,4 +1,17 @@
 
+# Setup do projeto
+
+### Rodar os terminais tcp
+1.
+Compile once:
+javac -d out $(find src -name '*.java')
+2.
+Terminal 1 — start the monitor:
+java -cp out com.fabrica.monitor.MonitorMain
+3.
+Terminal 2 — start the factory app:
+java -cp out com.fabrica.Main
+
 Este documento detalha o contexto, escopo e requisitos técnicos do projeto **TraceCore**, um sistema desenvolvido em Java para controle de fluxo de produção, focado na aplicação prática de Programação Orientada a Objetos e comunicação em rede.
 
 ## 1. Ideia do Projeto
@@ -73,7 +86,7 @@ Modelos utilizados:
 
 ## Prompts:
 
-### 01
+### 01 Gemini Pro
 **Atue como um Arquiteto de Software Java Senior.**  
 **Tarefa:** Gere um arquivo de documentação `CONTEXTO.md` para um projeto acadêmico de Java que consiste em uma **CLI (Interface de Linha de Comando) para gerenciamento de fluxo de produção de uma empresa desde a matéria prima até o despache.
 
@@ -106,4 +119,29 @@ Modelos utilizados:
 A LLM respondeu com o arquivo que foi utilizado acima no readme com todas as especificações do projeto que foi utilizado com contexto para todos os prompts subsequentes
 
 ---
-### 02
+### 02 GitHub copilot pro (auto)
+/plan Create a plan to implement the tcp tread described in the readme file
+
+#### Resultado:
+Plano criado:
+Ele cobre a implementação em 8 etapas, partindo do estado atual do projeto — hoje só há o menu em Main.java — até o fluxo completo do README:
+
+1. estruturar domínio e serviços de estoque,
+2. adicionar persistência com Java NIO,
+3. criar a thread de monitoramento de estoque,
+4. implementar o envio de alertas via TCP (Socket/ServerSocket),
+5. criar o terminal separado de monitoramento,
+6. integrar tudo ao Main,
+7. validar o cenário ponta a ponta com alerta em tempo real.
+Também registrei os todos e dependências no rastreamento interno para execução posterior.
+
+---
+
+### 3 GitHub copilot pro (auto)
+Create a .md file in the folder i gave you explaining how does the tcp connection works in detail and why it was used to tread two terminals at the same time
+
+#### Resultado:
+Criou um arquivo md explicando em detalhes por o protoclo tcp com tread foi usado para rodar dois terminais em paralelo
+
+---
+
